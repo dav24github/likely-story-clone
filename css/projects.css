@@ -1,0 +1,31 @@
+body {
+  background: #ff001f;
+}
+
+.header svg {
+  fill: #000;
+}
+
+a {
+  color: #000;
+}
+
+.projects {
+  padding-top: 14rem;
+  padding-bottom: 12rem;
+  overflow: hidden;
+}
+.projects__wrapper {
+  width: max-content;
+}
+.projects__item {
+  width: max-content;
+  display: block;
+}
+.projects__item .heading-primary {
+  display: inline-block;
+  line-height: 1;
+  margin-right: 100px;
+}
+
+/*# sourceMappingURL=projects.css.map */
