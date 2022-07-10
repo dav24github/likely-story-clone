@@ -19,23 +19,51 @@ svgMarks.forEach((svg) => {
   svg.style.transition = "0.5s ease-in-out 0.2s";
 });
 
-window.addEventListener("scroll", () => {
+function markReveal() {
   svgMarks.forEach((svg, index) => {
     if (svg.getBoundingClientRect().top <= window.innerHeight) {
       svg.style.strokeDashoffset = 0;
     }
   });
-});
+}
 
-email.addEventListener("mouseenter", () => {
+function markMouseEnter() {
   markEmail.style.transition = "initial";
   markEmail.style.transitionDelay = "0.5s";
   markEmail.style.animation = "markAnimation 1s ease-in-out";
   markEmail.style.stroke = "#fff";
-});
+}
 
-email.addEventListener("mouseleave", () => {
+function markMouseLeave() {
   markEmail.style.transition = "0.3s";
   markEmail.style.animation = "initial";
   markEmail.style.stroke = "#000";
+}
+
+// ==================== Parallax Effect ====================
+// ============== Hero ==============
+function heroParallax() {
+  const viewportHeight = screen.height;
+
+  console.log(viewportHeight);
+  // if (window.scrollY <= viewportHeight) {
+  //   console.log("ok");
+  // }
+}
+
+// ========================================================
+// ==================== Event Listener ====================
+// ========================================================
+
+window.addEventListener("scroll", () => {
+  markReveal();
+  heroParallax();
+});
+
+email.addEventListener("mouseenter", () => {
+  markMouseEnter();
+});
+
+email.addEventListener("mouseleave", () => {
+  markMouseLeave();
 });
