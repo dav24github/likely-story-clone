@@ -13,10 +13,10 @@
 
   &__main-shape {
     position: absolute;
-    top: 62vh;
     left: 1.5rem;
     width: 45vw;
     height: 50vw;
+    transition: 0.3s;
 
     .hidden {
       visibility: hidden;
@@ -105,12 +105,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    padding-top: 5rem;
     padding-right: 3vw;
-    transform: rotate(10deg);
 
     &-wrapper {
       width: 400px;
       height: 270px;
+      transition: 0.5s;
     }
 
     &-thumbnail {
@@ -313,6 +314,7 @@
   display: flex;
   justify-items: center;
   align-items: center;
+  height: max-content;
 
   &__left {
     width: 45%;
@@ -325,6 +327,8 @@
 
       img {
         width: 90%;
+        transition: 0.3s;
+        animation: levitation 6s ease-in-out infinite;
       }
     }
   }

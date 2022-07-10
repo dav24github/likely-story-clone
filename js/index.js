@@ -41,15 +41,34 @@ function markMouseLeave() {
 }
 
 // ==================== Parallax Effect ====================
-// ============== Hero ==============
-function heroParallax() {
-  const viewportHeight = screen.height;
+// ============== Hero-MainShape ==============
+const mainShape = document.querySelector(".hero__main-shape");
+const viewportHeight = screen.height;
+const initialPosition = viewportHeight * 0.5;
+mainShape.style.top = initialPosition + "px";
 
-  console.log(viewportHeight);
-  // if (window.scrollY <= viewportHeight) {
-  //   console.log("ok");
-  // }
+const video = document.querySelector(".hero__video-wrapper");
+const topVideo = video.getBoundingClientRect().top;
+const heightVideo = video.getBoundingClientRect().height;
+let rotation = 0;
+let oldScrollY = 0;
+function heroParallax() {
+  if (window.scrollY <= viewportHeight) {
+    mainShape.style.top = initialPosition + window.scrollY * 0.1 + "px";
+  }
+
+  if (
+    window.scrollY + viewportHeight >= topVideo &&
+    window.scrollY + viewportHeight <= topVideo + heightVideo + viewportHeight
+  ) {
+    if (window.scrollY >= oldScrollY) rotation += 0.15;
+    else rotation -= 0.15;
+
+    video.style.transform = `rotateZ(${rotation}deg)`;
+    oldScrollY = window.scrollY;
+  }
 }
+// ============== Hero-MainShape ==============
 
 // ========================================================
 // ==================== Event Listener ====================
