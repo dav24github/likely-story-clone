@@ -9,6 +9,7 @@ class MoveInfite {
     this.projectWidth = this.project.getBoundingClientRect().width;
     this.speed = this.projectWidth * 0.0005;
     this.direction = direction;
+    this.stop = false;
 
     this.start();
   }
@@ -36,29 +37,33 @@ class MoveInfite {
 
   moveProject = () => {
     this.offset += this.direction * this.speed;
-    if (this.direction > 0) {
-      if (
-        this.offset >=
-        this.project.getBoundingClientRect().width / 2 + this.projectWidth + 100
-      ) {
-        this.offset = this.project.getBoundingClientRect().width / 2 + 100;
-        this.project.children[1].style.transform = `translateX(calc(${-this
-          .offset}px))`;
+    if (!this.stop) {
+      if (this.direction > 0) {
+        if (
+          this.offset >=
+          this.project.getBoundingClientRect().width / 2 +
+            this.projectWidth +
+            100
+        ) {
+          this.offset = this.project.getBoundingClientRect().width / 2 + 100;
+          this.project.children[1].style.transform = `translateX(calc(${-this
+            .offset}px))`;
+        } else {
+          this.project.children[1].style.transform = `translateX(calc(${-this
+            .offset}px))`;
+        }
       } else {
-        this.project.children[1].style.transform = `translateX(calc(${-this
-          .offset}px))`;
-      }
-    } else {
-      if (
-        this.offset <=
-        this.project.getBoundingClientRect().width / 2 - this.projectWidth
-      ) {
-        this.offset = this.project.getBoundingClientRect().width / 2;
-        this.project.children[1].style.transform = `translateX(calc(${-this
-          .offset}px))`;
-      } else {
-        this.project.children[1].style.transform = `translateX(calc(${-this
-          .offset}px))`;
+        if (
+          this.offset <=
+          this.project.getBoundingClientRect().width / 2 - this.projectWidth
+        ) {
+          this.offset = this.project.getBoundingClientRect().width / 2;
+          this.project.children[1].style.transform = `translateX(calc(${-this
+            .offset}px))`;
+        } else {
+          this.project.children[1].style.transform = `translateX(calc(${-this
+            .offset}px))`;
+        }
       }
     }
   };
@@ -74,10 +79,12 @@ class MoveInfite {
 
     this.project.children[1].addEventListener("mouseenter", () => {
       this.project.children[0].classList.toggle("active");
+      this.stop = true;
     });
 
     this.project.children[1].addEventListener("mouseleave", () => {
       this.project.children[0].classList.toggle("active");
+      this.stop = false;
     });
   };
 }
