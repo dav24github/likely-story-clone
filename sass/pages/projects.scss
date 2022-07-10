@@ -21,6 +21,8 @@ a {
 
   &__wrapper {
     width: max-content;
+    display: flex;
+    flex-direction: column;
   }
 
   &__item {
@@ -32,5 +34,32 @@ a {
       line-height: 1;
       margin-right: 100px;
     }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      border: 6px solid #fff;
+      transform: translate(-50%, 0) rotate(5deg);
+      display: none;
+      animation: showProject 0.5s both;
+      pointer-events: none;
+
+      &.active {
+        display: block;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@keyframes showProject {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

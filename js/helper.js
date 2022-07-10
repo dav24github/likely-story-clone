@@ -54,10 +54,8 @@ window.addEventListener("scroll", (e) => {
 });
 
 // ==================== Hover pointer ====================
-const mainWork = document.querySelector(".work__main");
-const projectsContainer = document.querySelector(".work__wrapper");
-const projects = Array.from(projectsContainer.children);
-projects.push(mainWork);
+const projectsHoverContainer = document.querySelectorAll(".hover");
+const projectsHover = Array.from(projectsHoverContainer);
 
 let cursor = document.querySelector(".cursor");
 
@@ -66,13 +64,13 @@ window.onmousemove = (e) => {
   cursor.style.left = e.pageX + "px";
 };
 
-projects.forEach((links) => {
-  links.onmouseenter = () => {
+projectsHover.forEach((links) => {
+  links.children[1].onmouseenter = () => {
     cursor.classList.add("active");
     cursor.classList.remove("hide");
   };
 
-  links.onmouseleave = () => {
+  links.children[1].onmouseleave = () => {
     cursor.classList.add("hide");
     cursor.classList.remove("active");
   };

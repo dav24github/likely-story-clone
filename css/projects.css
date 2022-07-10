@@ -17,6 +17,8 @@ a {
 }
 .projects__wrapper {
   width: max-content;
+  display: flex;
+  flex-direction: column;
 }
 .projects__item {
   width: max-content;
@@ -26,6 +28,30 @@ a {
   display: inline-block;
   line-height: 1;
   margin-right: 100px;
+}
+.projects__item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  border: 6px solid #fff;
+  transform: translate(-50%, 0) rotate(5deg);
+  display: none;
+  animation: showProject 0.5s both;
+  pointer-events: none;
+}
+.projects__item img.active {
+  display: block;
+  z-index: 1;
+}
+
+@keyframes showProject {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=projects.css.map */
