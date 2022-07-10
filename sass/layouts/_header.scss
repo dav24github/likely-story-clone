@@ -1,0 +1,52 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 3rem;
+  z-index: 2000;
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    svg {
+      width: 6vw;
+      fill: #fff;
+    }
+  }
+
+  &__wrapper {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    li {
+      a {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -3rem;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          opacity: 0;
+          background-color: #fff;
+          transition: 0.3s;
+        }
+
+        &:hover::after {
+          opacity: 1;
+          bottom: -2rem;
+        }
+      }
+    }
+  }
+}

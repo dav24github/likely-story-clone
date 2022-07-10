@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as var;
+
+body {
+  background: var.$background-color-1;
+}
+
+.header {
+  svg {
+    fill: #000;
+  }
+}
+
+a {
+  color: #000;
+}
+
+.projects {
+  padding-top: 14rem;
+  padding-bottom: 12rem;
+  overflow: hidden;
+
+  &__wrapper {
+    width: max-content;
+  }
+
+  &__item {
+    width: max-content;
+    display: block;
+
+    .heading-primary {
+      display: inline-block;
+      line-height: 1;
+      margin-right: 100px;
+    }
+  }
+}
