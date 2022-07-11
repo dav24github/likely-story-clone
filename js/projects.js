@@ -36,8 +36,8 @@ class MoveInfite {
   };
 
   moveProject = () => {
-    this.offset += this.direction * this.speed;
     if (!this.stop) {
+      this.offset += this.direction * this.speed;
       if (this.direction > 0) {
         if (
           this.offset >=

@@ -28,11 +28,31 @@ a {
   &__item {
     width: max-content;
     display: block;
+    position: relative;
+
+    &:hover {
+      .heading-primary::before {
+        height: 100%;
+      }
+    }
 
     .heading-primary {
       display: inline-block;
       line-height: 1;
       margin-right: 100px;
+      position: relative;
+
+      &::before {
+        content: attr(data-text);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+        overflow: hidden;
+        height: 0%;
+        transition: 0.5s ease-out;
+      }
     }
 
     img {
@@ -51,6 +71,30 @@ a {
         z-index: 1;
       }
     }
+
+    .ticker {
+      background-color: #ffce00;
+      padding: 1rem 0;
+      transform: translateY(-50%) rotateZ(-4deg);
+      position: absolute;
+
+      .track {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 3rem;
+        position: absolute;
+        top: 50%;
+        animation: moveInfinite 10s linear both;
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          background-color: #fff;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
 
@@ -61,5 +105,15 @@ a {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes moveInfinite {
+  from {
+    left: -1%;
+  }
+
+  to {
+    left: -30%;
   }
 }
