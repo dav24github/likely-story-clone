@@ -27,6 +27,9 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
+
+    <!--==================== Scroll ====================-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body class="loading">
     <div class="loader">
@@ -362,7 +365,11 @@
         <h1 class="heading-primary">WORK</h1>
         <div class="work__container">
           <a href="#" class="work__main hover">
-            <div class="work__main-image--box">
+            <div
+              data-aos-once="true"
+              data-aos="fade-right"
+              class="work__main-image--box"
+            >
               <img src="img/TEG-Cover@2x-620x768.jpg" alt="" />
             </div>
             <div class="work__main-text--box">
@@ -391,10 +398,14 @@
                 </svg>
               </span>
               <h2 class="heading-secondary">
-                <div><span>THE EDWIN</span></div>
-                <div><span>GROUP</span></div>
+                <div data-aos-once="true" data-aos="flip-up">
+                  <span>THE EDWIN</span>
+                </div>
+                <div data-aos-once="true" data-aos="flip-up">
+                  <span>GROUP</span>
+                </div>
               </h2>
-              <p class="text">
+              <p data-aos-once="true" data-aos="fade-up" class="text">
                 Brand identity for The Edwin Group - an educational collective,
                 <br />
                 working to improve the lives of young people.
@@ -405,11 +416,19 @@
           <div class="work__wrapper">
             <a href="#" class="work__project hover">
               <span class="work__project-category">WEB DESIGN</span>
-              <div class="work__project-image--box">
+              <div
+                data-aos-once="true"
+                data-aos="fade-right"
+                class="work__project-image--box"
+              >
                 <img src="img/SMILE-COVER-–-2-copy-1240x1536.jpg" alt="" />
               </div>
               <div class="work__project-text--box">
-                <h3 class="heading-tertiary">
+                <h3
+                  data-aos-once="true"
+                  data-aos="fade-up"
+                  class="heading-tertiary"
+                >
                   <span>SMILE</span>
                   <span>KITCHENS</span>
                 </h3>
@@ -423,10 +442,19 @@
                 >BRAND IDENTITY & WEB DESIGN</span
               >
               <div class="work__project-image--box">
-                <img src="img/Mask-Group-262@2x.jpg" alt="" />
+                <img
+                  data-aos-once="true"
+                  data-aos="fade-right"
+                  src="img/Mask-Group-262@2x.jpg"
+                  alt=""
+                />
               </div>
               <div class="work__project-text--box">
-                <h3 class="heading-tertiary">
+                <h3
+                  data-aos-once="true"
+                  data-aos="fade-up"
+                  class="heading-tertiary"
+                >
                   <span>NOVO</span>
                 </h3>
               </div>
@@ -435,10 +463,19 @@
             <a href="#" class="work__project hover">
               <span class="work__project-category">WEB DESIGN</span>
               <div class="work__project-image--box">
-                <img src="img/Browns-Cover-01-1.png" alt="" />
+                <img
+                  data-aos-once="true"
+                  data-aos="fade-right"
+                  src="img/Browns-Cover-01-1.png"
+                  alt=""
+                />
               </div>
               <div class="work__project-text--box">
-                <h3 class="heading-tertiary">
+                <h3
+                  data-aos-once="true"
+                  data-aos="fade-up"
+                  class="heading-tertiary"
+                >
                   <span>BROWN</span>
                   <span>OPTICIANS</span>
                 </h3>
@@ -584,7 +621,9 @@
       <div class="cursor-2"></div>
     </div>
     <!--==================== JS ====================-->
-    <script src="js/helper.js"></script>
-    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="dist/helper.bundle.js"></script>
+    <script src="dist/home.bundle.js"></script>
   </body>
 </html>

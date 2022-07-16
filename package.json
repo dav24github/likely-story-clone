@@ -4,6 +4,7 @@
   "description": "Papeleria creativa y mas",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --watch",
     "sass-dev": "sass --watch --update --style=expanded sass/main.scss:css/style.css sass/pages:css",
     "sass-prod": "sass --no-source-map --style=compressed sass/main.scss:css/style.css sass/pages:css"
   },
@@ -19,6 +20,11 @@
   "homepage": "https://github.com/dav24github/Rossel-website#readme",
   "devDependencies": {
     "node-sass": "^7.0.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "locomotive-scroll": "^4.1.4"
   }
 }

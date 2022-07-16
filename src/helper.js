@@ -6,7 +6,7 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+function preloadScreen() {
   setTimeout(() => {
     circle.style.transition = "all 1s";
     circle.style.r = "100%";
@@ -16,14 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     loader.style.display = "none";
   }, 5000);
-});
+}
 
 // ==================== Header animation ====================
 const header = document.querySelector(".header");
 
 var oldScroll = 0;
 var fromBottom = false;
-window.addEventListener("scroll", (e) => {
+
+function headerAnimation(e) {
   if (window.scrollY > 300 && oldScroll < window.scrollY && !fromBottom) {
     header.style.animation = "headerAnimationHide 0.5s ease both";
   }
@@ -51,7 +52,7 @@ window.addEventListener("scroll", (e) => {
   }
 
   oldScroll = window.scrollY;
-});
+}
 
 // ==================== Hover pointer ====================
 const projectsHoverContainer = document.querySelectorAll(".hover");
@@ -74,4 +75,15 @@ projectsHover.forEach((links) => {
     cursor.classList.add("hide");
     cursor.classList.remove("active");
   };
+});
+
+// ========================================================
+// ==================== Event Listener ====================
+// ========================================================
+document.addEventListener("DOMContentLoaded", function () {
+  preloadScreen();
+});
+
+window.addEventListener("scroll", (e) => {
+  headerAnimation(e);
 });

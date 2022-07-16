@@ -15,7 +15,7 @@ a {
 }
 
 .projects {
-  padding-top: 14rem;
+  padding-top: 20rem;
   padding-bottom: 12rem;
   overflow: hidden;
 
@@ -28,30 +28,37 @@ a {
   &__item {
     width: max-content;
     display: block;
-    position: relative;
+    overflow: hidden;
+    margin-top: -5rem;
 
     &:hover {
       .heading-primary::before {
         height: 100%;
       }
+
+      .ticker {
+        width: 110vw;
+      }
     }
 
     .heading-primary {
       display: inline-block;
-      line-height: 1;
-      margin-right: 100px;
+      line-height: 0.9;
+      padding-left: 5rem;
+      margin-right: 50px;
       position: relative;
 
       &::before {
         content: attr(data-text);
         display: block;
         position: absolute;
-        top: 0;
+        padding-left: 5rem;
         left: 0;
+        top: 0;
         color: #fff;
         overflow: hidden;
         height: 0%;
-        transition: 0.5s ease-out;
+        transition: 0.5s ease-out 0.1s;
       }
     }
 
@@ -61,7 +68,7 @@ a {
       left: 0;
       width: 280px;
       border: 6px solid #fff;
-      transform: translate(-50%, 0) rotate(5deg);
+      transform: translate(-50%, 0%) rotate(5deg);
       display: none;
       animation: showProject 0.5s both;
       pointer-events: none;
@@ -73,19 +80,27 @@ a {
     }
 
     .ticker {
-      background-color: #ffce00;
       padding: 1rem 0;
-      transform: translateY(-50%) rotateZ(-4deg);
-      position: absolute;
+      position: relative;
+      overflow: hidden;
+      height: 7rem;
+      top: -10rem;
+      left: -5rem;
+      transform: rotateZ(-4deg);
+      pointer-events: none;
+      width: 0vw;
+      transform-origin: left;
+      transition: width 0.5s ease-out 0.1s;
 
       .track {
-        display: flex;
-        width: max-content;
-        align-items: center;
-        gap: 3rem;
         position: absolute;
         top: 50%;
-        animation: moveInfinite 10s linear both;
+        display: flex;
+        gap: 3rem;
+        background-color: #ffce00;
+        width: max-content;
+        align-items: center;
+        animation: moveInfinite 10s linear infinite both;
 
         .dot {
           width: 10px;
@@ -110,10 +125,10 @@ a {
 
 @keyframes moveInfinite {
   from {
-    left: -1%;
+    left: 0%;
   }
 
   to {
-    left: -30%;
+    left: -20%;
   }
 }

@@ -27,18 +27,18 @@ function markReveal() {
   });
 }
 
-function markMouseEnter() {
+email.addEventListener("mouseenter", () => {
   markEmail.style.transition = "initial";
   markEmail.style.transitionDelay = "0.5s";
   markEmail.style.animation = "markAnimation 1s ease-in-out";
   markEmail.style.stroke = "#fff";
-}
+});
 
-function markMouseLeave() {
+email.addEventListener("mouseleave", () => {
   markEmail.style.transition = "0.3s";
   markEmail.style.animation = "initial";
   markEmail.style.stroke = "#000";
-}
+});
 
 // ==================== Parallax Effect ====================
 // ============== Hero-MainShape ==============
@@ -52,6 +52,7 @@ const topVideo = video.getBoundingClientRect().top;
 const heightVideo = video.getBoundingClientRect().height;
 let rotation = 0;
 let oldScrollY = 0;
+
 function heroParallax() {
   if (window.scrollY <= viewportHeight) {
     mainShape.style.top = initialPosition + window.scrollY * 0.1 + "px";
@@ -68,10 +69,9 @@ function heroParallax() {
     oldScrollY = window.scrollY;
   }
 }
-// ============== Hero-MainShape ==============
 
 // ========================================================
-// ==================== Event Listener ====================
+// ==================== Window Event Listener ====================
 // ========================================================
 
 window.addEventListener("scroll", () => {
@@ -79,10 +79,17 @@ window.addEventListener("scroll", () => {
   heroParallax();
 });
 
-email.addEventListener("mouseenter", () => {
-  markMouseEnter();
+// ========================================================
+// ==================== Scroll Reveal ====================
+// ========================================================
+ScrollReveal().reveal(".work .heading-primary", {
+  delay: 300,
+  duration: 500,
+  distance: "100px",
+  opacity: 0,
+  easing: "ease-in-out",
+  scale: 0.85,
+  reset: false,
 });
 
-email.addEventListener("mouseleave", () => {
-  markMouseLeave();
-});
+AOS.init();

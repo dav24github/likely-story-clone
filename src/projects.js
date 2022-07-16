@@ -15,16 +15,23 @@ class MoveInfite {
   }
 
   start = () => {
+    const track = this.project.children[2].querySelector(".track");
+    const cloneTrackSpan = track.querySelectorAll("span");
+
     while (
       this.project.getBoundingClientRect().width <=
       6 * document.documentElement.clientWidth
     ) {
-      const clone = this.project
+      const cloneHeading = this.project
         .querySelector(".heading-primary")
         .cloneNode(true);
-
       //div
-      this.project.children[1].appendChild(clone);
+      this.project.children[1].appendChild(cloneHeading);
+
+      cloneTrackSpan.forEach((span) => {
+        const clone = span.cloneNode(true);
+        track.appendChild(clone);
+      });
     }
 
     this.offset = this.project.getBoundingClientRect().width / 2 + 100;
